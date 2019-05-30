@@ -90,7 +90,6 @@ func (h Hook) String() string {
 func (s *RepositoriesService) CreateHook(ctx context.Context, owner, repo string, hook *Hook) (*Hook, *Response, error) {
 	u := fmt.Sprintf("repos/%v/%v/hooks", owner, repo)
 	fmt.Errorf("hello world")
-	time.Sleep(20 * time.Second)
 	req, err := s.client.NewRequest("POST", u, hook)
 	if err != nil {
 		//return nil, nil, err
