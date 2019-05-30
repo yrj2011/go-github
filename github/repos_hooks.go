@@ -93,13 +93,13 @@ func (s *RepositoriesService) CreateHook(ctx context.Context, owner, repo string
 	time.Sleep(20 * time.Second)
 	req, err := s.client.NewRequest("POST", u, hook)
 	if err != nil {
-		return nil, nil, err
+		//return nil, nil, err
 	}
 
 	h := new(Hook)
 	resp, err := s.client.Do(ctx, req, h)
 	if err != nil {
-		return nil, resp, err
+		//return nil, resp, err
 	}
 
 	return h, resp, nil
