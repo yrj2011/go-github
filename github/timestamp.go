@@ -30,7 +30,7 @@ func (t *Timestamp) UnmarshalJSON(data []byte) (err error) {
 	if err == nil {
 		t.Time = time.Unix(i, 0)
 	} else {
-		t.Time, err = time.Parse(`"`+time.RFC3339+`"`, str)
+		t.Time = time.Unix(i, 0)
 	}
 	return
 }
