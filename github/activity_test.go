@@ -33,34 +33,34 @@ func TestActivityService_List(t *testing.T) {
 }
 
 var feedsJSON = []byte(`{
-  "timeline_url": "https://github.com/timeline",
-  "user_url": "https://github.com/{user}",
-  "current_user_public_url": "https://github.com/defunkt",
-  "current_user_url": "https://github.com/defunkt.private?token=abc123",
-  "current_user_actor_url": "https://github.com/defunkt.private.actor?token=abc123",
+  "timeline_url": "http://github.com/timeline",
+  "user_url": "http://github.com/{user}",
+  "current_user_public_url": "http://github.com/defunkt",
+  "current_user_url": "http://github.com/defunkt.private?token=abc123",
+  "current_user_actor_url": "http://github.com/defunkt.private.actor?token=abc123",
   "current_user_organization_url": "",
   "current_user_organization_urls": [
-    "https://github.com/organizations/github/defunkt.private.atom?token=abc123"
+    "http://github.com/organizations/github/defunkt.private.atom?token=abc123"
   ],
   "_links": {
     "timeline": {
-      "href": "https://github.com/timeline",
+      "href": "http://github.com/timeline",
       "type": "application/atom+xml"
     },
     "user": {
-      "href": "https://github.com/{user}",
+      "href": "http://github.com/{user}",
       "type": "application/atom+xml"
     },
     "current_user_public": {
-      "href": "https://github.com/defunkt",
+      "href": "http://github.com/defunkt",
       "type": "application/atom+xml"
     },
     "current_user": {
-      "href": "https://github.com/defunkt.private?token=abc123",
+      "href": "http://github.com/defunkt.private?token=abc123",
       "type": "application/atom+xml"
     },
     "current_user_actor": {
-      "href": "https://github.com/defunkt.private.actor?token=abc123",
+      "href": "http://github.com/defunkt.private.actor?token=abc123",
       "type": "application/atom+xml"
     },
     "current_user_organization": {
@@ -69,7 +69,7 @@ var feedsJSON = []byte(`{
     },
     "current_user_organizations": [
       {
-        "href": "https://github.com/organizations/github/defunkt.private.atom?token=abc123",
+        "href": "http://github.com/organizations/github/defunkt.private.atom?token=abc123",
         "type": "application/atom+xml"
       }
     ]
@@ -77,14 +77,14 @@ var feedsJSON = []byte(`{
 }`)
 
 var wantFeeds = &Feeds{
-	TimelineURL:                String("https://github.com/timeline"),
-	UserURL:                    String("https://github.com/{user}"),
-	CurrentUserPublicURL:       String("https://github.com/defunkt"),
-	CurrentUserURL:             String("https://github.com/defunkt.private?token=abc123"),
-	CurrentUserActorURL:        String("https://github.com/defunkt.private.actor?token=abc123"),
+	TimelineURL:                String("http://github.com/timeline"),
+	UserURL:                    String("http://github.com/{user}"),
+	CurrentUserPublicURL:       String("http://github.com/defunkt"),
+	CurrentUserURL:             String("http://github.com/defunkt.private?token=abc123"),
+	CurrentUserActorURL:        String("http://github.com/defunkt.private.actor?token=abc123"),
 	CurrentUserOrganizationURL: String(""),
 	CurrentUserOrganizationURLs: []string{
-		"https://github.com/organizations/github/defunkt.private.atom?token=abc123",
+		"http://github.com/organizations/github/defunkt.private.atom?token=abc123",
 	},
 	Links: &struct {
 		Timeline                 *FeedLink  `json:"timeline,omitempty"`
@@ -96,23 +96,23 @@ var wantFeeds = &Feeds{
 		CurrentUserOrganizations []FeedLink `json:"current_user_organizations,omitempty"`
 	}{
 		Timeline: &FeedLink{
-			HRef: String("https://github.com/timeline"),
+			HRef: String("http://github.com/timeline"),
 			Type: String("application/atom+xml"),
 		},
 		User: &FeedLink{
-			HRef: String("https://github.com/{user}"),
+			HRef: String("http://github.com/{user}"),
 			Type: String("application/atom+xml"),
 		},
 		CurrentUserPublic: &FeedLink{
-			HRef: String("https://github.com/defunkt"),
+			HRef: String("http://github.com/defunkt"),
 			Type: String("application/atom+xml"),
 		},
 		CurrentUser: &FeedLink{
-			HRef: String("https://github.com/defunkt.private?token=abc123"),
+			HRef: String("http://github.com/defunkt.private?token=abc123"),
 			Type: String("application/atom+xml"),
 		},
 		CurrentUserActor: &FeedLink{
-			HRef: String("https://github.com/defunkt.private.actor?token=abc123"),
+			HRef: String("http://github.com/defunkt.private.actor?token=abc123"),
 			Type: String("application/atom+xml"),
 		},
 		CurrentUserOrganization: &FeedLink{
@@ -121,7 +121,7 @@ var wantFeeds = &Feeds{
 		},
 		CurrentUserOrganizations: []FeedLink{
 			{
-				HRef: String("https://github.com/organizations/github/defunkt.private.atom?token=abc123"),
+				HRef: String("http://github.com/organizations/github/defunkt.private.atom?token=abc123"),
 				Type: String("application/atom+xml"),
 			},
 		},

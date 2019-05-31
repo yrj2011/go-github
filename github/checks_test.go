@@ -148,7 +148,7 @@ func TestChecksService_ListCheckRunAnnotations(t *testing.T) {
 		})
 		fmt.Fprint(w, `[{
 		                           "filename": "README.md",
-		                           "blob_href": "https://github.com/octocat/Hello-World/blob/837db83be4137ca555d9a5598d0a1ea2987ecfee/README.md",
+		                           "blob_href": "http://github.com/octocat/Hello-World/blob/837db83be4137ca555d9a5598d0a1ea2987ecfee/README.md",
 		                           "start_line": 2,
 		                           "end_line": 2,
 		                           "warning_level": "warning",
@@ -165,7 +165,7 @@ func TestChecksService_ListCheckRunAnnotations(t *testing.T) {
 
 	want := []*CheckRunAnnotation{{
 		FileName:     String("README.md"),
-		BlobHRef:     String("https://github.com/octocat/Hello-World/blob/837db83be4137ca555d9a5598d0a1ea2987ecfee/README.md"),
+		BlobHRef:     String("http://github.com/octocat/Hello-World/blob/837db83be4137ca555d9a5598d0a1ea2987ecfee/README.md"),
 		StartLine:    Int(2),
 		EndLine:      Int(2),
 		WarningLevel: String("warning"),

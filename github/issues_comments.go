@@ -49,7 +49,7 @@ type IssueListCommentsOptions struct {
 // ListComments lists all comments on the specified issue. Specifying an issue
 // number of 0 will return all comments on all issues for the repository.
 //
-// GitHub API docs: https://developer.github.com/v3/issues/comments/#list-comments-on-an-issue
+// GitHub API docs: http://developer.github.com/v3/issues/comments/#list-comments-on-an-issue
 func (s *IssuesService) ListComments(ctx context.Context, owner string, repo string, number int, opt *IssueListCommentsOptions) ([]*IssueComment, *Response, error) {
 	var u string
 	if number == 0 {
@@ -81,7 +81,7 @@ func (s *IssuesService) ListComments(ctx context.Context, owner string, repo str
 
 // GetComment fetches the specified issue comment.
 //
-// GitHub API docs: https://developer.github.com/v3/issues/comments/#get-a-single-comment
+// GitHub API docs: http://developer.github.com/v3/issues/comments/#get-a-single-comment
 func (s *IssuesService) GetComment(ctx context.Context, owner string, repo string, commentID int64) (*IssueComment, *Response, error) {
 	u := fmt.Sprintf("repos/%v/%v/issues/comments/%d", owner, repo, commentID)
 
@@ -104,7 +104,7 @@ func (s *IssuesService) GetComment(ctx context.Context, owner string, repo strin
 
 // CreateComment creates a new comment on the specified issue.
 //
-// GitHub API docs: https://developer.github.com/v3/issues/comments/#create-a-comment
+// GitHub API docs: http://developer.github.com/v3/issues/comments/#create-a-comment
 func (s *IssuesService) CreateComment(ctx context.Context, owner string, repo string, number int, comment *IssueComment) (*IssueComment, *Response, error) {
 	u := fmt.Sprintf("repos/%v/%v/issues/%d/comments", owner, repo, number)
 	req, err := s.client.NewRequest("POST", u, comment)
@@ -123,7 +123,7 @@ func (s *IssuesService) CreateComment(ctx context.Context, owner string, repo st
 // EditComment updates an issue comment.
 // A non-nil comment.Body must be provided. Other comment fields should be left nil.
 //
-// GitHub API docs: https://developer.github.com/v3/issues/comments/#edit-a-comment
+// GitHub API docs: http://developer.github.com/v3/issues/comments/#edit-a-comment
 func (s *IssuesService) EditComment(ctx context.Context, owner string, repo string, commentID int64, comment *IssueComment) (*IssueComment, *Response, error) {
 	u := fmt.Sprintf("repos/%v/%v/issues/comments/%d", owner, repo, commentID)
 	req, err := s.client.NewRequest("PATCH", u, comment)
@@ -141,7 +141,7 @@ func (s *IssuesService) EditComment(ctx context.Context, owner string, repo stri
 
 // DeleteComment deletes an issue comment.
 //
-// GitHub API docs: https://developer.github.com/v3/issues/comments/#delete-a-comment
+// GitHub API docs: http://developer.github.com/v3/issues/comments/#delete-a-comment
 func (s *IssuesService) DeleteComment(ctx context.Context, owner string, repo string, commentID int64) (*Response, error) {
 	u := fmt.Sprintf("repos/%v/%v/issues/comments/%d", owner, repo, commentID)
 	req, err := s.client.NewRequest("DELETE", u, nil)

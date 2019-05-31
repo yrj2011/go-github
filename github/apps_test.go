@@ -42,7 +42,7 @@ func TestAppsService_Get_specifiedApp(t *testing.T) {
 	mux.HandleFunc("/apps/a", func(w http.ResponseWriter, r *http.Request) {
 		testMethod(t, r, "GET")
 		testHeader(t, r, "Accept", mediaTypeIntegrationPreview)
-		fmt.Fprint(w, `{"html_url":"https://github.com/apps/a"}`)
+		fmt.Fprint(w, `{"html_url":"http://github.com/apps/a"}`)
 	})
 
 	app, _, err := client.Apps.Get(context.Background(), "a")
@@ -50,7 +50,7 @@ func TestAppsService_Get_specifiedApp(t *testing.T) {
 		t.Errorf("Apps.Get returned error: %v", err)
 	}
 
-	want := &App{HTMLURL: String("https://github.com/apps/a")}
+	want := &App{HTMLURL: String("http://github.com/apps/a")}
 	if !reflect.DeepEqual(app, want) {
 		t.Errorf("Apps.Get returned %+v, want %+v", *app.HTMLURL, *want.HTMLURL)
 	}

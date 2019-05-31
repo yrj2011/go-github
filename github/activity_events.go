@@ -125,7 +125,7 @@ func (e *Event) Payload() (payload interface{}) {
 
 // ListEvents drinks from the firehose of all public events across GitHub.
 //
-// GitHub API docs: https://developer.github.com/v3/activity/events/#list-public-events
+// GitHub API docs: http://developer.github.com/v3/activity/events/#list-public-events
 func (s *ActivityService) ListEvents(ctx context.Context, opt *ListOptions) ([]*Event, *Response, error) {
 	u, err := addOptions("events", opt)
 	if err != nil {
@@ -148,7 +148,7 @@ func (s *ActivityService) ListEvents(ctx context.Context, opt *ListOptions) ([]*
 
 // ListRepositoryEvents lists events for a repository.
 //
-// GitHub API docs: https://developer.github.com/v3/activity/events/#list-repository-events
+// GitHub API docs: http://developer.github.com/v3/activity/events/#list-repository-events
 func (s *ActivityService) ListRepositoryEvents(ctx context.Context, owner, repo string, opt *ListOptions) ([]*Event, *Response, error) {
 	u := fmt.Sprintf("repos/%v/%v/events", owner, repo)
 	u, err := addOptions(u, opt)
@@ -172,7 +172,7 @@ func (s *ActivityService) ListRepositoryEvents(ctx context.Context, owner, repo 
 
 // ListIssueEventsForRepository lists issue events for a repository.
 //
-// GitHub API docs: https://developer.github.com/v3/activity/events/#list-issue-events-for-a-repository
+// GitHub API docs: http://developer.github.com/v3/activity/events/#list-issue-events-for-a-repository
 func (s *ActivityService) ListIssueEventsForRepository(ctx context.Context, owner, repo string, opt *ListOptions) ([]*IssueEvent, *Response, error) {
 	u := fmt.Sprintf("repos/%v/%v/issues/events", owner, repo)
 	u, err := addOptions(u, opt)
@@ -196,7 +196,7 @@ func (s *ActivityService) ListIssueEventsForRepository(ctx context.Context, owne
 
 // ListEventsForRepoNetwork lists public events for a network of repositories.
 //
-// GitHub API docs: https://developer.github.com/v3/activity/events/#list-public-events-for-a-network-of-repositories
+// GitHub API docs: http://developer.github.com/v3/activity/events/#list-public-events-for-a-network-of-repositories
 func (s *ActivityService) ListEventsForRepoNetwork(ctx context.Context, owner, repo string, opt *ListOptions) ([]*Event, *Response, error) {
 	u := fmt.Sprintf("networks/%v/%v/events", owner, repo)
 	u, err := addOptions(u, opt)
@@ -220,7 +220,7 @@ func (s *ActivityService) ListEventsForRepoNetwork(ctx context.Context, owner, r
 
 // ListEventsForOrganization lists public events for an organization.
 //
-// GitHub API docs: https://developer.github.com/v3/activity/events/#list-public-events-for-an-organization
+// GitHub API docs: http://developer.github.com/v3/activity/events/#list-public-events-for-an-organization
 func (s *ActivityService) ListEventsForOrganization(ctx context.Context, org string, opt *ListOptions) ([]*Event, *Response, error) {
 	u := fmt.Sprintf("orgs/%v/events", org)
 	u, err := addOptions(u, opt)
@@ -245,7 +245,7 @@ func (s *ActivityService) ListEventsForOrganization(ctx context.Context, org str
 // ListEventsPerformedByUser lists the events performed by a user. If publicOnly is
 // true, only public events will be returned.
 //
-// GitHub API docs: https://developer.github.com/v3/activity/events/#list-events-performed-by-a-user
+// GitHub API docs: http://developer.github.com/v3/activity/events/#list-events-performed-by-a-user
 func (s *ActivityService) ListEventsPerformedByUser(ctx context.Context, user string, publicOnly bool, opt *ListOptions) ([]*Event, *Response, error) {
 	var u string
 	if publicOnly {
@@ -275,7 +275,7 @@ func (s *ActivityService) ListEventsPerformedByUser(ctx context.Context, user st
 // ListEventsReceivedByUser lists the events received by a user. If publicOnly is
 // true, only public events will be returned.
 //
-// GitHub API docs: https://developer.github.com/v3/activity/events/#list-events-that-a-user-has-received
+// GitHub API docs: http://developer.github.com/v3/activity/events/#list-events-that-a-user-has-received
 func (s *ActivityService) ListEventsReceivedByUser(ctx context.Context, user string, publicOnly bool, opt *ListOptions) ([]*Event, *Response, error) {
 	var u string
 	if publicOnly {
@@ -305,7 +305,7 @@ func (s *ActivityService) ListEventsReceivedByUser(ctx context.Context, user str
 // ListUserEventsForOrganization provides the user’s organization dashboard. You
 // must be authenticated as the user to view this.
 //
-// GitHub API docs: https://developer.github.com/v3/activity/events/#list-events-for-an-organization
+// GitHub API docs: http://developer.github.com/v3/activity/events/#list-events-for-an-organization
 func (s *ActivityService) ListUserEventsForOrganization(ctx context.Context, org, user string, opt *ListOptions) ([]*Event, *Response, error) {
 	u := fmt.Sprintf("users/%v/events/orgs/%v", user, org)
 	u, err := addOptions(u, opt)

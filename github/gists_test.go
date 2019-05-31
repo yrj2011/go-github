@@ -304,7 +304,7 @@ func TestGistsService_ListCommits(t *testing.T) {
 		fmt.Fprint(w, `
 		  [
 		    {
-		      "url": "https://api.github.com/gists/1/1",
+		      "url": "http://api.github.com/gists/1/1",
 		      "version": "1",
 		      "user": {
 		        "id": 1
@@ -326,7 +326,7 @@ func TestGistsService_ListCommits(t *testing.T) {
 	}
 
 	want := []*GistCommit{{
-		URL:         String("https://api.github.com/gists/1/1"),
+		URL:         String("http://api.github.com/gists/1/1"),
 		Version:     String("1"),
 		User:        &User{ID: Int64(1)},
 		CommittedAt: &Timestamp{time.Date(2010, time.January, 1, 00, 00, 00, 0, time.UTC)},
@@ -498,7 +498,7 @@ func TestGistsService_ListForks(t *testing.T) {
 		testFormValues(t, r, nil)
 		fmt.Fprint(w, `
 		  [
-		    {"url": "https://api.github.com/gists/1",
+		    {"url": "http://api.github.com/gists/1",
 		     "user": {"id": 1},
 		     "id": "1",
 		     "created_at": "2010-01-01T00:00:00Z",
@@ -514,7 +514,7 @@ func TestGistsService_ListForks(t *testing.T) {
 	}
 
 	want := []*GistFork{{
-		URL:       String("https://api.github.com/gists/1"),
+		URL:       String("http://api.github.com/gists/1"),
 		ID:        String("1"),
 		User:      &User{ID: Int64(1)},
 		CreatedAt: &Timestamp{time.Date(2010, time.January, 1, 00, 00, 00, 0, time.UTC)},

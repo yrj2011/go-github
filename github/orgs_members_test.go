@@ -385,24 +385,24 @@ func TestOrganizationsService_ListPendingOrgInvitations(t *testing.T) {
     					"inviter": {
       						"login": "other_user",
       						"id": 1,
-      						"avatar_url": "https://github.com/images/error/other_user_happy.gif",
+      						"avatar_url": "http://github.com/images/error/other_user_happy.gif",
       						"gravatar_id": "",
-      						"url": "https://api.github.com/users/other_user",
-      						"html_url": "https://github.com/other_user",
-      						"followers_url": "https://api.github.com/users/other_user/followers",
-      						"following_url": "https://api.github.com/users/other_user/following/other_user",
-      						"gists_url": "https://api.github.com/users/other_user/gists/gist_id",
-      						"starred_url": "https://api.github.com/users/other_user/starred/owner/repo",
-      						"subscriptions_url": "https://api.github.com/users/other_user/subscriptions",
-      						"organizations_url": "https://api.github.com/users/other_user/orgs",
-      						"repos_url": "https://api.github.com/users/other_user/repos",
-      						"events_url": "https://api.github.com/users/other_user/events/privacy",
-      						"received_events_url": "https://api.github.com/users/other_user/received_events/privacy",
+      						"url": "http://api.github.com/users/other_user",
+      						"html_url": "http://github.com/other_user",
+      						"followers_url": "http://api.github.com/users/other_user/followers",
+      						"following_url": "http://api.github.com/users/other_user/following/other_user",
+      						"gists_url": "http://api.github.com/users/other_user/gists/gist_id",
+      						"starred_url": "http://api.github.com/users/other_user/starred/owner/repo",
+      						"subscriptions_url": "http://api.github.com/users/other_user/subscriptions",
+      						"organizations_url": "http://api.github.com/users/other_user/orgs",
+      						"repos_url": "http://api.github.com/users/other_user/repos",
+      						"events_url": "http://api.github.com/users/other_user/events/privacy",
+      						"received_events_url": "http://api.github.com/users/other_user/received_events/privacy",
       						"type": "User",
       						"site_admin": false
 						},
 						"team_count": 2,
-						"invitation_team_url": "https://api.github.com/organizations/2/invitations/1/teams"	  	
+						"invitation_team_url": "http://api.github.com/organizations/2/invitations/1/teams"	  	
   				}
 			]`)
 	})
@@ -424,24 +424,24 @@ func TestOrganizationsService_ListPendingOrgInvitations(t *testing.T) {
 			Inviter: &User{
 				Login:             String("other_user"),
 				ID:                Int64(1),
-				AvatarURL:         String("https://github.com/images/error/other_user_happy.gif"),
+				AvatarURL:         String("http://github.com/images/error/other_user_happy.gif"),
 				GravatarID:        String(""),
-				URL:               String("https://api.github.com/users/other_user"),
-				HTMLURL:           String("https://github.com/other_user"),
-				FollowersURL:      String("https://api.github.com/users/other_user/followers"),
-				FollowingURL:      String("https://api.github.com/users/other_user/following/other_user"),
-				GistsURL:          String("https://api.github.com/users/other_user/gists/gist_id"),
-				StarredURL:        String("https://api.github.com/users/other_user/starred/owner/repo"),
-				SubscriptionsURL:  String("https://api.github.com/users/other_user/subscriptions"),
-				OrganizationsURL:  String("https://api.github.com/users/other_user/orgs"),
-				ReposURL:          String("https://api.github.com/users/other_user/repos"),
-				EventsURL:         String("https://api.github.com/users/other_user/events/privacy"),
-				ReceivedEventsURL: String("https://api.github.com/users/other_user/received_events/privacy"),
+				URL:               String("http://api.github.com/users/other_user"),
+				HTMLURL:           String("http://github.com/other_user"),
+				FollowersURL:      String("http://api.github.com/users/other_user/followers"),
+				FollowingURL:      String("http://api.github.com/users/other_user/following/other_user"),
+				GistsURL:          String("http://api.github.com/users/other_user/gists/gist_id"),
+				StarredURL:        String("http://api.github.com/users/other_user/starred/owner/repo"),
+				SubscriptionsURL:  String("http://api.github.com/users/other_user/subscriptions"),
+				OrganizationsURL:  String("http://api.github.com/users/other_user/orgs"),
+				ReposURL:          String("http://api.github.com/users/other_user/repos"),
+				EventsURL:         String("http://api.github.com/users/other_user/events/privacy"),
+				ReceivedEventsURL: String("http://api.github.com/users/other_user/received_events/privacy"),
 				Type:              String("User"),
 				SiteAdmin:         Bool(false),
 			},
 			TeamCount:         Int(2),
-			InvitationTeamURL: String("https://api.github.com/organizations/2/invitations/1/teams"),
+			InvitationTeamURL: String("http://api.github.com/organizations/2/invitations/1/teams"),
 		}}
 
 	if !reflect.DeepEqual(invitations, want) {
@@ -497,14 +497,14 @@ func TestOrganizationsService_ListOrgInvitationTeams(t *testing.T) {
 		fmt.Fprint(w, `[
 			{
 				"id": 1,
-				"url": "https://api.github.com/teams/1",
+				"url": "http://api.github.com/teams/1",
 				"name": "Justice League",
 				"slug": "justice-league",
 				"description": "A great team.",
 				"privacy": "closed",
 				"permission": "admin",
-				"members_url": "https://api.github.com/teams/1/members{/member}",
-				"repositories_url": "https://api.github.com/teams/1/repos"
+				"members_url": "http://api.github.com/teams/1/members{/member}",
+				"repositories_url": "http://api.github.com/teams/1/repos"
 			  }
 			]`)
 	})
@@ -518,14 +518,14 @@ func TestOrganizationsService_ListOrgInvitationTeams(t *testing.T) {
 	want := []*Team{
 		{
 			ID:              Int64(1),
-			URL:             String("https://api.github.com/teams/1"),
+			URL:             String("http://api.github.com/teams/1"),
 			Name:            String("Justice League"),
 			Slug:            String("justice-league"),
 			Description:     String("A great team."),
 			Privacy:         String("closed"),
 			Permission:      String("admin"),
-			MembersURL:      String("https://api.github.com/teams/1/members{/member}"),
-			RepositoriesURL: String("https://api.github.com/teams/1/repos"),
+			MembersURL:      String("http://api.github.com/teams/1/members{/member}"),
+			RepositoriesURL: String("http://api.github.com/teams/1/repos"),
 		},
 	}
 

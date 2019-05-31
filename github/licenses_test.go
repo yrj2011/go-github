@@ -19,7 +19,7 @@ func TestLicensesService_List(t *testing.T) {
 
 	mux.HandleFunc("/licenses", func(w http.ResponseWriter, r *http.Request) {
 		testMethod(t, r, "GET")
-		fmt.Fprint(w, `[{"key":"mit","name":"MIT","spdx_id":"MIT","url":"https://api.github.com/licenses/mit","featured":true}]`)
+		fmt.Fprint(w, `[{"key":"mit","name":"MIT","spdx_id":"MIT","url":"http://api.github.com/licenses/mit","featured":true}]`)
 	})
 
 	licenses, _, err := client.Licenses.List(context.Background())
@@ -31,7 +31,7 @@ func TestLicensesService_List(t *testing.T) {
 		Key:      String("mit"),
 		Name:     String("MIT"),
 		SPDXID:   String("MIT"),
-		URL:      String("https://api.github.com/licenses/mit"),
+		URL:      String("http://api.github.com/licenses/mit"),
 		Featured: Bool(true),
 	}}
 	if !reflect.DeepEqual(licenses, want) {

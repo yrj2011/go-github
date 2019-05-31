@@ -284,7 +284,7 @@ func getUserPassClient(t *testing.T) *github.Client {
 // an authorization; reset an authorization; revoke an authorization for an app)
 // require this authentication mechanism.
 //
-// See GitHub API docs: https://developer.com/v3/oauth_authorizations/#check-an-authorization
+// See GitHub API docs: http://developer.com/v3/oauth_authorizations/#check-an-authorization
 func getOAuthAppClient(t *testing.T) *github.Client {
 
 	username, ok := os.LookupEnv(envKeyClientID)

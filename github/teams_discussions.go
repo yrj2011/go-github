@@ -46,7 +46,7 @@ type DiscussionListOptions struct {
 // ListDiscussions lists all discussions on team's page.
 // Authenticated user must grant read:discussion scope.
 //
-// GitHub API docs: https://developer.github.com/v3/teams/discussions/#list-discussions
+// GitHub API docs: http://developer.github.com/v3/teams/discussions/#list-discussions
 func (s *TeamsService) ListDiscussions(ctx context.Context, teamID int64, options *DiscussionListOptions) ([]*TeamDiscussion, *Response, error) {
 	u := fmt.Sprintf("teams/%v/discussions", teamID)
 	u, err := addOptions(u, options)
@@ -74,7 +74,7 @@ func (s *TeamsService) ListDiscussions(ctx context.Context, teamID int64, option
 // GetDiscussion gets a specific discussion on a team's page.
 // Authenticated user must grant read:discussion scope.
 //
-// GitHub API docs: https://developer.github.com/v3/teams/discussions/#get-a-single-discussion
+// GitHub API docs: http://developer.github.com/v3/teams/discussions/#get-a-single-discussion
 func (s *TeamsService) GetDiscussion(ctx context.Context, teamID int64, discussionNumber int) (*TeamDiscussion, *Response, error) {
 	u := fmt.Sprintf("teams/%v/discussions/%v", teamID, discussionNumber)
 	req, err := s.client.NewRequest("GET", u, nil)
@@ -97,7 +97,7 @@ func (s *TeamsService) GetDiscussion(ctx context.Context, teamID int64, discussi
 // CreateDiscussion creates a new discussion post on a team's page.
 // Authenticated user must grant write:discussion scope.
 //
-// GitHub API docs: https://developer.github.com/v3/teams/discussions/#create-a-discussion
+// GitHub API docs: http://developer.github.com/v3/teams/discussions/#create-a-discussion
 func (s *TeamsService) CreateDiscussion(ctx context.Context, teamID int64, discussion TeamDiscussion) (*TeamDiscussion, *Response, error) {
 	u := fmt.Sprintf("teams/%v/discussions", teamID)
 	req, err := s.client.NewRequest("POST", u, discussion)
@@ -121,7 +121,7 @@ func (s *TeamsService) CreateDiscussion(ctx context.Context, teamID int64, discu
 // Authenticated user must grant write:discussion scope.
 // User is allowed to change Title and Body of a discussion only.
 //
-// GitHub API docs: https://developer.github.com/v3/teams/discussions/#edit-a-discussion
+// GitHub API docs: http://developer.github.com/v3/teams/discussions/#edit-a-discussion
 func (s *TeamsService) EditDiscussion(ctx context.Context, teamID int64, discussionNumber int, discussion TeamDiscussion) (*TeamDiscussion, *Response, error) {
 	u := fmt.Sprintf("teams/%v/discussions/%v", teamID, discussionNumber)
 	req, err := s.client.NewRequest("PATCH", u, discussion)
@@ -144,7 +144,7 @@ func (s *TeamsService) EditDiscussion(ctx context.Context, teamID int64, discuss
 // DeleteDiscussion deletes a discussion from team's page.
 // Authenticated user must grant write:discussion scope.
 //
-// GitHub API docs: https://developer.github.com/v3/teams/discussions/#delete-a-discussion
+// GitHub API docs: http://developer.github.com/v3/teams/discussions/#delete-a-discussion
 func (s *TeamsService) DeleteDiscussion(ctx context.Context, teamID int64, discussionNumber int) (*Response, error) {
 	u := fmt.Sprintf("teams/%v/discussions/%v", teamID, discussionNumber)
 	req, err := s.client.NewRequest("DELETE", u, nil)

@@ -27,8 +27,8 @@ import (
 )
 
 const (
-	defaultBaseURL = "https://api.github.com/"
-	uploadBaseURL  = "https://uploads.github.com/"
+	defaultBaseURL = "http://api.github.com/"
+	uploadBaseURL  = "http://uploads.github.com/"
 	userAgent      = "go-github"
 
 	headerRateLimit     = "X-RateLimit-Limit"
@@ -45,82 +45,82 @@ const (
 
 	// Media Type values to access preview APIs
 
-	// https://developer.github.com/changes/2014-12-09-new-attributes-for-stars-api/
+	// http://developer.github.com/changes/2014-12-09-new-attributes-for-stars-api/
 	mediaTypeStarringPreview = "application/vnd.github.v3.star+json"
 
-	// https://help.github.com/enterprise/2.4/admin/guides/migrations/exporting-the-github-com-organization-s-repositories/
+	// http://help.github.com/enterprise/2.4/admin/guides/migrations/exporting-the-github-com-organization-s-repositories/
 	mediaTypeMigrationsPreview = "application/vnd.github.wyandotte-preview+json"
 
-	// https://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements/
+	// http://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements/
 	mediaTypeDeploymentStatusPreview = "application/vnd.github.ant-man-preview+json"
 
-	// https://developer.github.com/changes/2016-02-19-source-import-preview-api/
+	// http://developer.github.com/changes/2016-02-19-source-import-preview-api/
 	mediaTypeImportPreview = "application/vnd.github.barred-rock-preview"
 
-	// https://developer.github.com/changes/2016-05-12-reactions-api-preview/
+	// http://developer.github.com/changes/2016-05-12-reactions-api-preview/
 	mediaTypeReactionsPreview = "application/vnd.github.squirrel-girl-preview"
 
-	// https://developer.github.com/changes/2016-04-04-git-signing-api-preview/
+	// http://developer.github.com/changes/2016-04-04-git-signing-api-preview/
 	mediaTypeGitSigningPreview = "application/vnd.github.cryptographer-preview+json"
 
-	// https://developer.github.com/changes/2016-05-23-timeline-preview-api/
+	// http://developer.github.com/changes/2016-05-23-timeline-preview-api/
 	mediaTypeTimelinePreview = "application/vnd.github.mockingbird-preview+json"
 
-	// https://developer.github.com/changes/2016-06-14-repository-invitations/
+	// http://developer.github.com/changes/2016-06-14-repository-invitations/
 	mediaTypeRepositoryInvitationsPreview = "application/vnd.github.swamp-thing-preview+json"
 
-	// https://developer.github.com/changes/2016-07-06-github-pages-preiew-api/
+	// http://developer.github.com/changes/2016-07-06-github-pages-preiew-api/
 	mediaTypePagesPreview = "application/vnd.github.mister-fantastic-preview+json"
 
-	// https://developer.github.com/changes/2016-09-14-projects-api/
+	// http://developer.github.com/changes/2016-09-14-projects-api/
 	mediaTypeProjectsPreview = "application/vnd.github.inertia-preview+json"
 
-	// https://developer.github.com/changes/2016-09-14-Integrations-Early-Access/
+	// http://developer.github.com/changes/2016-09-14-Integrations-Early-Access/
 	mediaTypeIntegrationPreview = "application/vnd.github.machine-man-preview+json"
 
-	// https://developer.github.com/changes/2017-01-05-commit-search-api/
+	// http://developer.github.com/changes/2017-01-05-commit-search-api/
 	mediaTypeCommitSearchPreview = "application/vnd.github.cloak-preview+json"
 
-	// https://developer.github.com/changes/2017-02-28-user-blocking-apis-and-webhook/
+	// http://developer.github.com/changes/2017-02-28-user-blocking-apis-and-webhook/
 	mediaTypeBlockUsersPreview = "application/vnd.github.giant-sentry-fist-preview+json"
 
-	// https://developer.github.com/changes/2017-02-09-community-health/
+	// http://developer.github.com/changes/2017-02-09-community-health/
 	mediaTypeRepositoryCommunityHealthMetricsPreview = "application/vnd.github.black-panther-preview+json"
 
-	// https://developer.github.com/changes/2017-05-23-coc-api/
+	// http://developer.github.com/changes/2017-05-23-coc-api/
 	mediaTypeCodesOfConductPreview = "application/vnd.github.scarlet-witch-preview+json"
 
-	// https://developer.github.com/changes/2017-07-17-update-topics-on-repositories/
+	// http://developer.github.com/changes/2017-07-17-update-topics-on-repositories/
 	mediaTypeTopicsPreview = "application/vnd.github.mercy-preview+json"
 
-	// https://developer.github.com/changes/2017-08-30-preview-nested-teams/
+	// http://developer.github.com/changes/2017-08-30-preview-nested-teams/
 	mediaTypeNestedTeamsPreview = "application/vnd.github.hellcat-preview+json"
 
-	// https://developer.github.com/changes/2017-11-09-repository-transfer-api-preview/
+	// http://developer.github.com/changes/2017-11-09-repository-transfer-api-preview/
 	mediaTypeRepositoryTransferPreview = "application/vnd.github.nightshade-preview+json"
 
-	// https://developer.github.com/changes/2018-01-25-organization-invitation-api-preview/
+	// http://developer.github.com/changes/2018-01-25-organization-invitation-api-preview/
 	mediaTypeOrganizationInvitationPreview = "application/vnd.github.dazzler-preview+json"
 
-	// https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews/
+	// http://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews/
 	mediaTypeRequiredApprovingReviewsPreview = "application/vnd.github.luke-cage-preview+json"
 
-	// https://developer.github.com/changes/2018-02-22-label-description-search-preview/
+	// http://developer.github.com/changes/2018-02-22-label-description-search-preview/
 	mediaTypeLabelDescriptionSearchPreview = "application/vnd.github.symmetra-preview+json"
 
-	// https://developer.github.com/changes/2018-02-07-team-discussions-api/
+	// http://developer.github.com/changes/2018-02-07-team-discussions-api/
 	mediaTypeTeamDiscussionsPreview = "application/vnd.github.echo-preview+json"
 
-	// https://developer.github.com/changes/2018-03-21-hovercard-api-preview/
+	// http://developer.github.com/changes/2018-03-21-hovercard-api-preview/
 	mediaTypeHovercardPreview = "application/vnd.github.hagar-preview+json"
 
-	// https://developer.github.com/changes/2018-01-10-lock-reason-api-preview/
+	// http://developer.github.com/changes/2018-01-10-lock-reason-api-preview/
 	mediaTypeLockReasonPreview = "application/vnd.github.sailor-v-preview+json"
 
-	// https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/
+	// http://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/
 	mediaTypeCheckRunsPreview = "application/vnd.github.antiope-preview+json"
 
-	// https://developer.github.com/enterprise/2.13/v3/repos/pre_receive_hooks/
+	// http://developer.github.com/enterprise/2.13/v3/repos/pre_receive_hooks/
 	mediaTypePreReceiveHooksPreview = "application/vnd.github.eye-scream-preview"
 )
 
@@ -556,14 +556,14 @@ func (c *Client) checkRateLimitBeforeDo(req *http.Request, rateLimitCategory rat
 /*
 An ErrorResponse reports one or more errors caused by an API request.
 
-GitHub API docs: https://developer.github.com/v3/#client-errors
+GitHub API docs: http://developer.github.com/v3/#client-errors
 */
 type ErrorResponse struct {
 	Response *http.Response // HTTP response that caused this error
 	Message  string         `json:"message"` // error message
 	Errors   []Error        `json:"errors"`  // more detail on individual errors
 	// Block is only populated on certain types of errors such as code 451.
-	// See https://developer.github.com/changes/2016-03-17-the-451-status-code-is-now-supported/
+	// See http://developer.github.com/changes/2016-03-17-the-451-status-code-is-now-supported/
 	// for more information.
 	Block *struct {
 		Reason    string     `json:"reason,omitempty"`
@@ -571,7 +571,7 @@ type ErrorResponse struct {
 	} `json:"block,omitempty"`
 	// Most errors will also include a documentation_url field pointing
 	// to some content that might help you resolve the error, see
-	// https://developer.github.com/v3/#client-errors
+	// http://developer.github.com/v3/#client-errors
 	DocumentationURL string `json:"documentation_url,omitempty"`
 }
 
@@ -615,7 +615,7 @@ func (*AcceptedError) Error() string {
 }
 
 // AbuseRateLimitError occurs when GitHub returns 403 Forbidden response with the
-// "documentation_url" field value equal to "https://developer.github.com/v3/#abuse-rate-limits".
+// "documentation_url" field value equal to "http://developer.github.com/v3/#abuse-rate-limits".
 type AbuseRateLimitError struct {
 	Response *http.Response // HTTP response that caused this error
 	Message  string         `json:"message"` // error message
@@ -662,7 +662,7 @@ These are the possible validation error codes:
         some resources return this (e.g. github.User.CreateKey()), additional
         information is set in the Message field of the Error
 
-GitHub API docs: https://developer.github.com/v3/#client-errors
+GitHub API docs: http://developer.github.com/v3/#client-errors
 */
 type Error struct {
 	Resource string `json:"resource"` // resource on which the error occurred
@@ -767,14 +767,14 @@ type RateLimits struct {
 	// requests are limited to 60 per hour. Authenticated requests are
 	// limited to 5,000 per hour.
 	//
-	// GitHub API docs: https://developer.github.com/v3/#rate-limiting
+	// GitHub API docs: http://developer.github.com/v3/#rate-limiting
 	Core *Rate `json:"core"`
 
 	// The rate limit for search API requests. Unauthenticated requests
 	// are limited to 10 requests per minutes. Authenticated requests are
 	// limited to 30 per minute.
 	//
-	// GitHub API docs: https://developer.github.com/v3/search/#rate-limit
+	// GitHub API docs: http://developer.github.com/v3/search/#rate-limit
 	Search *Rate `json:"search"`
 }
 
@@ -843,13 +843,13 @@ that need to use a higher rate limit associated with your OAuth application.
 This will append the querystring params client_id=xxx&client_secret=yyy to all
 requests.
 
-See https://developer.github.com/v3/#unauthenticated-rate-limited-requests for
+See http://developer.github.com/v3/#unauthenticated-rate-limited-requests for
 more information.
 */
 type UnauthenticatedRateLimitedTransport struct {
 	// ClientID is the GitHub OAuth client ID of the current application, which
 	// can be found by selecting its entry in the list at
-	// https://github.com/settings/applications.
+	// http://github.com/settings/applications.
 	ClientID string
 
 	// ClientSecret is the GitHub OAuth client secret of the current

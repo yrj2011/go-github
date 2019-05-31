@@ -23,11 +23,11 @@ func TestGitService_GetRef_singleRef(t *testing.T) {
 		fmt.Fprint(w, `
 		  {
 		    "ref": "refs/heads/b",
-		    "url": "https://api.github.com/repos/o/r/git/refs/heads/b",
+		    "url": "http://api.github.com/repos/o/r/git/refs/heads/b",
 		    "object": {
 		      "type": "commit",
 		      "sha": "aa218f56b14c9653891f9e74264a383fa43fefbd",
-		      "url": "https://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
+		      "url": "http://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
 		    }
 		  }`)
 	})
@@ -39,11 +39,11 @@ func TestGitService_GetRef_singleRef(t *testing.T) {
 
 	want := &Reference{
 		Ref: String("refs/heads/b"),
-		URL: String("https://api.github.com/repos/o/r/git/refs/heads/b"),
+		URL: String("http://api.github.com/repos/o/r/git/refs/heads/b"),
 		Object: &GitObject{
 			Type: String("commit"),
 			SHA:  String("aa218f56b14c9653891f9e74264a383fa43fefbd"),
-			URL:  String("https://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"),
+			URL:  String("http://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"),
 		},
 	}
 	if !reflect.DeepEqual(ref, want) {
@@ -66,20 +66,20 @@ func TestGitService_GetRef_multipleRefs(t *testing.T) {
 		  [
 		    {
 			    "ref": "refs/heads/booger",
-			    "url": "https://api.github.com/repos/o/r/git/refs/heads/booger",
+			    "url": "http://api.github.com/repos/o/r/git/refs/heads/booger",
 			    "object": {
 			      "type": "commit",
 			      "sha": "aa218f56b14c9653891f9e74264a383fa43fefbd",
-			      "url": "https://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
+			      "url": "http://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
 			    }
 		  	},
 		    {
 		      "ref": "refs/heads/bandsaw",
-		      "url": "https://api.github.com/repos/o/r/git/refs/heads/bandsaw",
+		      "url": "http://api.github.com/repos/o/r/git/refs/heads/bandsaw",
 		      "object": {
 		        "type": "commit",
 		        "sha": "612077ae6dffb4d2fbd8ce0cccaa58893b07b5ac",
-		        "url": "https://api.github.com/repos/o/r/git/commits/612077ae6dffb4d2fbd8ce0cccaa58893b07b5ac"
+		        "url": "http://api.github.com/repos/o/r/git/commits/612077ae6dffb4d2fbd8ce0cccaa58893b07b5ac"
 		      }
 		    }
 		  ]
@@ -103,11 +103,11 @@ func TestGitService_GetRefs_singleRef(t *testing.T) {
 		fmt.Fprint(w, `
 		  {
 		    "ref": "refs/heads/b",
-		    "url": "https://api.github.com/repos/o/r/git/refs/heads/b",
+		    "url": "http://api.github.com/repos/o/r/git/refs/heads/b",
 		    "object": {
 		      "type": "commit",
 		      "sha": "aa218f56b14c9653891f9e74264a383fa43fefbd",
-		      "url": "https://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
+		      "url": "http://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
 		    }
 		  }`)
 	})
@@ -120,11 +120,11 @@ func TestGitService_GetRefs_singleRef(t *testing.T) {
 	ref := refs[0]
 	want := &Reference{
 		Ref: String("refs/heads/b"),
-		URL: String("https://api.github.com/repos/o/r/git/refs/heads/b"),
+		URL: String("http://api.github.com/repos/o/r/git/refs/heads/b"),
 		Object: &GitObject{
 			Type: String("commit"),
 			SHA:  String("aa218f56b14c9653891f9e74264a383fa43fefbd"),
-			URL:  String("https://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"),
+			URL:  String("http://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"),
 		},
 	}
 	if !reflect.DeepEqual(ref, want) {
@@ -147,20 +147,20 @@ func TestGitService_GetRefs_multipleRefs(t *testing.T) {
 		  [
 		    {
 			    "ref": "refs/heads/booger",
-			    "url": "https://api.github.com/repos/o/r/git/refs/heads/booger",
+			    "url": "http://api.github.com/repos/o/r/git/refs/heads/booger",
 			    "object": {
 			      "type": "commit",
 			      "sha": "aa218f56b14c9653891f9e74264a383fa43fefbd",
-			      "url": "https://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
+			      "url": "http://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
 			    }
 		  	},
 		    {
 		      "ref": "refs/heads/bandsaw",
-		      "url": "https://api.github.com/repos/o/r/git/refs/heads/bandsaw",
+		      "url": "http://api.github.com/repos/o/r/git/refs/heads/bandsaw",
 		      "object": {
 		        "type": "commit",
 		        "sha": "612077ae6dffb4d2fbd8ce0cccaa58893b07b5ac",
-		        "url": "https://api.github.com/repos/o/r/git/commits/612077ae6dffb4d2fbd8ce0cccaa58893b07b5ac"
+		        "url": "http://api.github.com/repos/o/r/git/commits/612077ae6dffb4d2fbd8ce0cccaa58893b07b5ac"
 		      }
 		    }
 		  ]
@@ -174,11 +174,11 @@ func TestGitService_GetRefs_multipleRefs(t *testing.T) {
 
 	want := &Reference{
 		Ref: String("refs/heads/booger"),
-		URL: String("https://api.github.com/repos/o/r/git/refs/heads/booger"),
+		URL: String("http://api.github.com/repos/o/r/git/refs/heads/booger"),
 		Object: &GitObject{
 			Type: String("commit"),
 			SHA:  String("aa218f56b14c9653891f9e74264a383fa43fefbd"),
-			URL:  String("https://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"),
+			URL:  String("http://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"),
 		},
 	}
 	if !reflect.DeepEqual(refs[0], want) {
@@ -214,20 +214,20 @@ func TestGitService_ListRefs(t *testing.T) {
 		  [
 		    {
 		      "ref": "refs/heads/branchA",
-		      "url": "https://api.github.com/repos/o/r/git/refs/heads/branchA",
+		      "url": "http://api.github.com/repos/o/r/git/refs/heads/branchA",
 		      "object": {
 			"type": "commit",
 			"sha": "aa218f56b14c9653891f9e74264a383fa43fefbd",
-			"url": "https://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
+			"url": "http://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
 		      }
 		    },
 		    {
 		      "ref": "refs/heads/branchB",
-		      "url": "https://api.github.com/repos/o/r/git/refs/heads/branchB",
+		      "url": "http://api.github.com/repos/o/r/git/refs/heads/branchB",
 		      "object": {
 			"type": "commit",
 			"sha": "aa218f56b14c9653891f9e74264a383fa43fefbd",
-			"url": "https://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
+			"url": "http://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
 		      }
 		    }
 		  ]`)
@@ -241,20 +241,20 @@ func TestGitService_ListRefs(t *testing.T) {
 	want := []*Reference{
 		{
 			Ref: String("refs/heads/branchA"),
-			URL: String("https://api.github.com/repos/o/r/git/refs/heads/branchA"),
+			URL: String("http://api.github.com/repos/o/r/git/refs/heads/branchA"),
 			Object: &GitObject{
 				Type: String("commit"),
 				SHA:  String("aa218f56b14c9653891f9e74264a383fa43fefbd"),
-				URL:  String("https://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"),
+				URL:  String("http://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"),
 			},
 		},
 		{
 			Ref: String("refs/heads/branchB"),
-			URL: String("https://api.github.com/repos/o/r/git/refs/heads/branchB"),
+			URL: String("http://api.github.com/repos/o/r/git/refs/heads/branchB"),
 			Object: &GitObject{
 				Type: String("commit"),
 				SHA:  String("aa218f56b14c9653891f9e74264a383fa43fefbd"),
-				URL:  String("https://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"),
+				URL:  String("http://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"),
 			},
 		},
 	}
@@ -305,11 +305,11 @@ func TestGitService_CreateRef(t *testing.T) {
 		fmt.Fprint(w, `
 		  {
 		    "ref": "refs/heads/b",
-		    "url": "https://api.github.com/repos/o/r/git/refs/heads/b",
+		    "url": "http://api.github.com/repos/o/r/git/refs/heads/b",
 		    "object": {
 		      "type": "commit",
 		      "sha": "aa218f56b14c9653891f9e74264a383fa43fefbd",
-		      "url": "https://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
+		      "url": "http://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
 		    }
 		  }`)
 	})
@@ -326,11 +326,11 @@ func TestGitService_CreateRef(t *testing.T) {
 
 	want := &Reference{
 		Ref: String("refs/heads/b"),
-		URL: String("https://api.github.com/repos/o/r/git/refs/heads/b"),
+		URL: String("http://api.github.com/repos/o/r/git/refs/heads/b"),
 		Object: &GitObject{
 			Type: String("commit"),
 			SHA:  String("aa218f56b14c9653891f9e74264a383fa43fefbd"),
-			URL:  String("https://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"),
+			URL:  String("http://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"),
 		},
 	}
 	if !reflect.DeepEqual(ref, want) {
@@ -369,11 +369,11 @@ func TestGitService_UpdateRef(t *testing.T) {
 		fmt.Fprint(w, `
 		  {
 		    "ref": "refs/heads/b",
-		    "url": "https://api.github.com/repos/o/r/git/refs/heads/b",
+		    "url": "http://api.github.com/repos/o/r/git/refs/heads/b",
 		    "object": {
 		      "type": "commit",
 		      "sha": "aa218f56b14c9653891f9e74264a383fa43fefbd",
-		      "url": "https://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
+		      "url": "http://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
 		    }
 		  }`)
 	})
@@ -388,11 +388,11 @@ func TestGitService_UpdateRef(t *testing.T) {
 
 	want := &Reference{
 		Ref: String("refs/heads/b"),
-		URL: String("https://api.github.com/repos/o/r/git/refs/heads/b"),
+		URL: String("http://api.github.com/repos/o/r/git/refs/heads/b"),
 		Object: &GitObject{
 			Type: String("commit"),
 			SHA:  String("aa218f56b14c9653891f9e74264a383fa43fefbd"),
-			URL:  String("https://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"),
+			URL:  String("http://api.github.com/repos/o/r/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"),
 		},
 	}
 	if !reflect.DeepEqual(ref, want) {

@@ -46,7 +46,7 @@ func setup() (client *Client, mux *http.ServeMux, serverURL string, teardown fun
 		fmt.Fprintln(os.Stderr, "\t"+req.URL.String())
 		fmt.Fprintln(os.Stderr)
 		fmt.Fprintln(os.Stderr, "\tDid you accidentally use an absolute endpoint URL rather than relative?")
-		fmt.Fprintln(os.Stderr, "\tSee https://github.com/google/go-github/issues/752 for information.")
+		fmt.Fprintln(os.Stderr, "\tSee http://github.com/google/go-github/issues/752 for information.")
 		http.Error(w, "Client.BaseURL path prefix is not preserved in the request URL.", http.StatusInternalServerError)
 	})
 
@@ -175,8 +175,8 @@ func TestNewClient(t *testing.T) {
 }
 
 func TestNewEnterpriseClient(t *testing.T) {
-	baseURL := "https://custom-url/"
-	uploadURL := "https://custom-upload-url/"
+	baseURL := "http://custom-url/"
+	uploadURL := "http://custom-upload-url/"
 	c, err := NewEnterpriseClient(baseURL, uploadURL, nil)
 	if err != nil {
 		t.Fatalf("NewEnterpriseClient returned unexpected error: %v", err)
@@ -191,8 +191,8 @@ func TestNewEnterpriseClient(t *testing.T) {
 }
 
 func TestNewEnterpriseClient_addsTrailingSlashToURLs(t *testing.T) {
-	baseURL := "https://custom-url"
-	uploadURL := "https://custom-upload-url"
+	baseURL := "http://custom-url"
+	uploadURL := "http://custom-upload-url"
 	formattedBaseURL := baseURL + "/"
 	formattedUploadURL := uploadURL + "/"
 
@@ -298,8 +298,8 @@ func TestNewRequest_errorForNoTrailingSlash(t *testing.T) {
 		rawurl    string
 		wantError bool
 	}{
-		{rawurl: "https://example.com/api/v3", wantError: true},
-		{rawurl: "https://example.com/api/v3/", wantError: false},
+		{rawurl: "http://example.com/api/v3", wantError: true},
+		{rawurl: "http://example.com/api/v3/", wantError: false},
 	}
 	c := NewClient(nil)
 	for _, test := range tests {
@@ -321,8 +321,8 @@ func TestNewUploadRequest_errorForNoTrailingSlash(t *testing.T) {
 		rawurl    string
 		wantError bool
 	}{
-		{rawurl: "https://example.com/api/uploads", wantError: true},
-		{rawurl: "https://example.com/api/uploads/", wantError: false},
+		{rawurl: "http://example.com/api/uploads", wantError: true},
+		{rawurl: "http://example.com/api/uploads/", wantError: false},
 	}
 	c := NewClient(nil)
 	for _, test := range tests {
@@ -342,10 +342,10 @@ func TestNewUploadRequest_errorForNoTrailingSlash(t *testing.T) {
 func TestResponse_populatePageValues(t *testing.T) {
 	r := http.Response{
 		Header: http.Header{
-			"Link": {`<https://api.github.com/?page=1>; rel="first",` +
-				` <https://api.github.com/?page=2>; rel="prev",` +
-				` <https://api.github.com/?page=4>; rel="next",` +
-				` <https://api.github.com/?page=5>; rel="last"`,
+			"Link": {`<http://api.github.com/?page=1>; rel="first",` +
+				` <http://api.github.com/?page=2>; rel="prev",` +
+				` <http://api.github.com/?page=4>; rel="next",` +
+				` <http://api.github.com/?page=5>; rel="last"`,
 			},
 		},
 	}
@@ -368,11 +368,11 @@ func TestResponse_populatePageValues(t *testing.T) {
 func TestResponse_populatePageValues_invalid(t *testing.T) {
 	r := http.Response{
 		Header: http.Header{
-			"Link": {`<https://api.github.com/?page=1>,` +
-				`<https://api.github.com/?page=abc>; rel="first",` +
-				`https://api.github.com/?page=2; rel="prev",` +
-				`<https://api.github.com/>; rel="next",` +
-				`<https://api.github.com/?page=>; rel="last"`,
+			"Link": {`<http://api.github.com/?page=1>,` +
+				`<http://api.github.com/?page=abc>; rel="first",` +
+				`http://api.github.com/?page=2; rel="prev",` +
+				`<http://api.github.com/>; rel="next",` +
+				`<http://api.github.com/?page=>; rel="last"`,
 			},
 		},
 	}
@@ -394,7 +394,7 @@ func TestResponse_populatePageValues_invalid(t *testing.T) {
 	// more invalid URLs
 	r = http.Response{
 		Header: http.Header{
-			"Link": {`<https://api.github.com/%?page=2>; rel="first"`},
+			"Link": {`<http://api.github.com/%?page=2>; rel="first"`},
 		},
 	}
 
@@ -562,7 +562,7 @@ func TestDo_rateLimit_rateLimitError(t *testing.T) {
 		w.WriteHeader(http.StatusForbidden)
 		fmt.Fprintln(w, `{
    "message": "API rate limit exceeded for xxx.xxx.xxx.xxx. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",
-   "documentation_url": "https://developer.github.com/v3/#rate-limiting"
+   "documentation_url": "http://developer.github.com/v3/#rate-limiting"
 }`)
 	})
 
@@ -603,7 +603,7 @@ func TestDo_rateLimit_noNetworkCall(t *testing.T) {
 		w.WriteHeader(http.StatusForbidden)
 		fmt.Fprintln(w, `{
    "message": "API rate limit exceeded for xxx.xxx.xxx.xxx. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",
-   "documentation_url": "https://developer.github.com/v3/#rate-limiting"
+   "documentation_url": "http://developer.github.com/v3/#rate-limiting"
 }`)
 	})
 
@@ -655,7 +655,7 @@ func TestDo_rateLimit_abuseRateLimitError(t *testing.T) {
 		// there is no "Retry-After" header.
 		fmt.Fprintln(w, `{
    "message": "You have triggered an abuse detection mechanism and have been temporarily blocked from content creation. Please retry your request again later.",
-   "documentation_url": "https://developer.github.com/v3/#abuse-rate-limits"
+   "documentation_url": "http://developer.github.com/v3/#abuse-rate-limits"
 }`)
 	})
 
@@ -689,7 +689,7 @@ func TestDo_rateLimit_abuseRateLimitErrorEnterprise(t *testing.T) {
 		// url changes between versions but follows roughly the same format.
 		fmt.Fprintln(w, `{
    "message": "You have triggered an abuse detection mechanism and have been temporarily blocked from content creation. Please retry your request again later.",
-   "documentation_url": "https://developer.github.com/enterprise/2.12/v3/#abuse-rate-limits"
+   "documentation_url": "http://developer.github.com/enterprise/2.12/v3/#abuse-rate-limits"
 }`)
 	})
 
@@ -719,7 +719,7 @@ func TestDo_rateLimit_abuseRateLimitError_retryAfter(t *testing.T) {
 		w.WriteHeader(http.StatusForbidden)
 		fmt.Fprintln(w, `{
    "message": "You have triggered an abuse detection mechanism ...",
-   "documentation_url": "https://developer.github.com/v3/#abuse-rate-limits"
+   "documentation_url": "http://developer.github.com/v3/#abuse-rate-limits"
 }`)
 	})
 

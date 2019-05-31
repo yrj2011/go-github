@@ -476,7 +476,7 @@ func TestRepositoriesService_ListBranches(t *testing.T) {
 		// TODO: remove custom Accept header when this API fully launches
 		testHeader(t, r, "Accept", mediaTypeRequiredApprovingReviewsPreview)
 		testFormValues(t, r, values{"page": "2"})
-		fmt.Fprint(w, `[{"name":"master", "commit" : {"sha" : "a57781", "url" : "https://api.github.com/repos/o/r/commits/a57781"}}]`)
+		fmt.Fprint(w, `[{"name":"master", "commit" : {"sha" : "a57781", "url" : "http://api.github.com/repos/o/r/commits/a57781"}}]`)
 	})
 
 	opt := &ListOptions{Page: 2}
@@ -485,7 +485,7 @@ func TestRepositoriesService_ListBranches(t *testing.T) {
 		t.Errorf("Repositories.ListBranches returned error: %v", err)
 	}
 
-	want := []*Branch{{Name: String("master"), Commit: &RepositoryCommit{SHA: String("a57781"), URL: String("https://api.github.com/repos/o/r/commits/a57781")}}}
+	want := []*Branch{{Name: String("master"), Commit: &RepositoryCommit{SHA: String("a57781"), URL: String("http://api.github.com/repos/o/r/commits/a57781")}}}
 	if !reflect.DeepEqual(branches, want) {
 		t.Errorf("Repositories.ListBranches returned %+v, want %+v", branches, want)
 	}
@@ -732,7 +732,7 @@ func TestRepositoriesService_License(t *testing.T) {
 
 	mux.HandleFunc("/repos/o/r/license", func(w http.ResponseWriter, r *http.Request) {
 		testMethod(t, r, "GET")
-		fmt.Fprint(w, `{"name": "LICENSE", "path": "LICENSE", "license":{"key":"mit","name":"MIT License","spdx_id":"MIT","url":"https://api.github.com/licenses/mit","featured":true}}`)
+		fmt.Fprint(w, `{"name": "LICENSE", "path": "LICENSE", "license":{"key":"mit","name":"MIT License","spdx_id":"MIT","url":"http://api.github.com/licenses/mit","featured":true}}`)
 	})
 
 	got, _, err := client.Repositories.License(context.Background(), "o", "r")
@@ -747,7 +747,7 @@ func TestRepositoriesService_License(t *testing.T) {
 			Name:     String("MIT License"),
 			Key:      String("mit"),
 			SPDXID:   String("MIT"),
-			URL:      String("https://api.github.com/licenses/mit"),
+			URL:      String("http://api.github.com/licenses/mit"),
 			Featured: Bool(true),
 		},
 	}

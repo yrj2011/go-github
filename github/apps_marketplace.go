@@ -13,7 +13,7 @@ import (
 // MarketplaceService handles communication with the marketplace related
 // methods of the GitHub API.
 //
-// GitHub API docs: https://developer.github.com/v3/apps/marketplace/
+// GitHub API docs: http://developer.github.com/v3/apps/marketplace/
 type MarketplaceService struct {
 	client *Client
 	// Stubbed controls whether endpoints that return stubbed data are used
@@ -21,7 +21,7 @@ type MarketplaceService struct {
 	// for testing your GitHub Apps. Stubbed data is hard-coded and will not
 	// change based on actual subscriptions.
 	//
-	// GitHub API docs: https://developer.github.com/v3/apps/marketplace/
+	// GitHub API docs: http://developer.github.com/v3/apps/marketplace/
 	Stubbed bool
 }
 
@@ -61,7 +61,7 @@ type MarketplacePlanAccount struct {
 
 // ListPlans lists all plans for your Marketplace listing.
 //
-// GitHub API docs: https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing
+// GitHub API docs: http://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing
 func (s *MarketplaceService) ListPlans(ctx context.Context, opt *ListOptions) ([]*MarketplacePlan, *Response, error) {
 	uri := s.marketplaceURI("plans")
 	u, err := addOptions(uri, opt)
@@ -85,7 +85,7 @@ func (s *MarketplaceService) ListPlans(ctx context.Context, opt *ListOptions) ([
 
 // ListPlanAccountsForPlan lists all GitHub accounts (user or organization) on a specific plan.
 //
-// GitHub API docs: https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan
+// GitHub API docs: http://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan
 func (s *MarketplaceService) ListPlanAccountsForPlan(ctx context.Context, planID int64, opt *ListOptions) ([]*MarketplacePlanAccount, *Response, error) {
 	uri := s.marketplaceURI(fmt.Sprintf("plans/%v/accounts", planID))
 	u, err := addOptions(uri, opt)
@@ -109,7 +109,7 @@ func (s *MarketplaceService) ListPlanAccountsForPlan(ctx context.Context, planID
 
 // ListPlanAccountsForAccount lists all GitHub accounts (user or organization) associated with an account.
 //
-// GitHub API docs: https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing
+// GitHub API docs: http://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing
 func (s *MarketplaceService) ListPlanAccountsForAccount(ctx context.Context, accountID int64, opt *ListOptions) ([]*MarketplacePlanAccount, *Response, error) {
 	uri := s.marketplaceURI(fmt.Sprintf("accounts/%v", accountID))
 	u, err := addOptions(uri, opt)
@@ -133,7 +133,7 @@ func (s *MarketplaceService) ListPlanAccountsForAccount(ctx context.Context, acc
 
 // ListMarketplacePurchasesForUser lists all GitHub marketplace purchases made by a user.
 //
-// GitHub API docs: https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases
+// GitHub API docs: http://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases
 func (s *MarketplaceService) ListMarketplacePurchasesForUser(ctx context.Context, opt *ListOptions) ([]*MarketplacePurchase, *Response, error) {
 	uri := "user/marketplace_purchases"
 	if s.Stubbed {

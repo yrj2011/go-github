@@ -262,7 +262,7 @@ func TestRepositoriesService_DownloadReleaseAsset_APIError(t *testing.T) {
 		testMethod(t, r, "GET")
 		testHeader(t, r, "Accept", defaultMediaType)
 		w.WriteHeader(http.StatusNotFound)
-		fmt.Fprint(w, `{"message":"Not Found","documentation_url":"https://developer.github.com/v3"}`)
+		fmt.Fprint(w, `{"message":"Not Found","documentation_url":"http://developer.github.com/v3"}`)
 	})
 
 	resp, loc, err := client.Repositories.DownloadReleaseAsset(context.Background(), "o", "r", 1)

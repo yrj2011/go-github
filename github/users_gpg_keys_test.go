@@ -93,7 +93,7 @@ func TestUsersService_CreateGPGKey(t *testing.T) {
 
 	input := `
 -----BEGIN PGP PUBLIC KEY BLOCK-----
-Comment: GPGTools - https://gpgtools.org
+Comment: GPGTools - http://gpgtools.org
 
 mQINBFcEd9kBEACo54TDbGhKlXKWMvJgecEUKPPcv7XdnpKdGb3LRw5MvFwT0V0f
 ...

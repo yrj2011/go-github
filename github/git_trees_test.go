@@ -147,7 +147,7 @@ func TestGitService_CreateTree_Content(t *testing.T) {
 
 		fmt.Fprint(w, `{
 		  "sha": "5c6780ad2c68743383b740fd1dab6f6a33202b11",
-		  "url": "https://api.github.com/repos/o/r/git/trees/5c6780ad2c68743383b740fd1dab6f6a33202b11",
+		  "url": "http://api.github.com/repos/o/r/git/trees/5c6780ad2c68743383b740fd1dab6f6a33202b11",
 		  "tree": [
 		    {
 			  "mode": "100644",
@@ -155,7 +155,7 @@ func TestGitService_CreateTree_Content(t *testing.T) {
 			  "sha":  "aad8feacf6f8063150476a7b2bd9770f2794c08b",
 			  "path": "content.md",
 			  "size": 12,
-			  "url": "https://api.github.com/repos/o/r/git/blobs/aad8feacf6f8063150476a7b2bd9770f2794c08b"
+			  "url": "http://api.github.com/repos/o/r/git/blobs/aad8feacf6f8063150476a7b2bd9770f2794c08b"
 		    }
 		  ]
 		}`)
@@ -175,7 +175,7 @@ func TestGitService_CreateTree_Content(t *testing.T) {
 				Type: String("blob"),
 				Size: Int(12),
 				SHA:  String("aad8feacf6f8063150476a7b2bd9770f2794c08b"),
-				URL:  String("https://api.github.com/repos/o/r/git/blobs/aad8feacf6f8063150476a7b2bd9770f2794c08b"),
+				URL:  String("http://api.github.com/repos/o/r/git/blobs/aad8feacf6f8063150476a7b2bd9770f2794c08b"),
 			},
 		},
 		nil,

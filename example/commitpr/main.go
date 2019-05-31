@@ -13,7 +13,7 @@
 //
 // Note, if you want to push a single file, you probably prefer to use the
 // content API. An example is available here:
-// https://godoc.org/github.com/google/go-github/github#example-RepositoriesService-CreateFile
+// http://godoc.org/github.com/google/go-github/github#example-RepositoriesService-CreateFile
 //
 // Note, for this to work at least 1 commit is needed, so you if you use this
 // after creating a repository you might want to make sure you set `AutoInit` to
@@ -147,7 +147,7 @@ func pushCommit(ref *github.Reference, tree *github.Tree) (err error) {
 	return err
 }
 
-// createPR creates a pull requesit. Based on: https://godoc.org/github.com/google/go-github/github#example-PullRequestsService-Create
+// createPR creates a pull requesit. Based on: http://godoc.org/github.com/google/go-github/github#example-PullRequestsService-Create
 func createPR() (err error) {
 	if *prSubject == "" {
 		return errors.New("missing `-pr-title` flag; skipping PR creation")

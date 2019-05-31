@@ -23,7 +23,7 @@ type TeamListTeamMembersOptions struct {
 // ListTeamMembers lists all of the users who are members of the specified
 // team.
 //
-// GitHub API docs: https://developer.github.com/v3/teams/members/#list-team-members
+// GitHub API docs: http://developer.github.com/v3/teams/members/#list-team-members
 func (s *TeamsService) ListTeamMembers(ctx context.Context, team int64, opt *TeamListTeamMembersOptions) ([]*User, *Response, error) {
 	u := fmt.Sprintf("teams/%v/members", team)
 	u, err := addOptions(u, opt)
@@ -49,7 +49,7 @@ func (s *TeamsService) ListTeamMembers(ctx context.Context, team int64, opt *Tea
 
 // IsTeamMember checks if a user is a member of the specified team.
 //
-// GitHub API docs: https://developer.github.com/v3/teams/members/#get-team-member
+// GitHub API docs: http://developer.github.com/v3/teams/members/#get-team-member
 //
 // Deprecated: This API has been marked as deprecated in the Github API docs,
 // TeamsService.GetTeamMembership method should be used instead.
@@ -67,7 +67,7 @@ func (s *TeamsService) IsTeamMember(ctx context.Context, team int64, user string
 
 // GetTeamMembership returns the membership status for a user in a team.
 //
-// GitHub API docs: https://developer.github.com/v3/teams/members/#get-team-membership
+// GitHub API docs: http://developer.github.com/v3/teams/members/#get-team-membership
 func (s *TeamsService) GetTeamMembership(ctx context.Context, team int64, user string) (*Membership, *Response, error) {
 	u := fmt.Sprintf("teams/%v/memberships/%v", team, user)
 	req, err := s.client.NewRequest("GET", u, nil)
@@ -117,7 +117,7 @@ type TeamAddTeamMembershipOptions struct {
 // the membership will transition to the "active" state and the user will be
 // added as a member of the team.
 //
-// GitHub API docs: https://developer.github.com/v3/teams/members/#add-or-update-team-membership
+// GitHub API docs: http://developer.github.com/v3/teams/members/#add-or-update-team-membership
 func (s *TeamsService) AddTeamMembership(ctx context.Context, team int64, user string, opt *TeamAddTeamMembershipOptions) (*Membership, *Response, error) {
 	u := fmt.Sprintf("teams/%v/memberships/%v", team, user)
 	req, err := s.client.NewRequest("PUT", u, opt)
@@ -136,7 +136,7 @@ func (s *TeamsService) AddTeamMembership(ctx context.Context, team int64, user s
 
 // RemoveTeamMembership removes a user from a team.
 //
-// GitHub API docs: https://developer.github.com/v3/teams/members/#remove-team-membership
+// GitHub API docs: http://developer.github.com/v3/teams/members/#remove-team-membership
 func (s *TeamsService) RemoveTeamMembership(ctx context.Context, team int64, user string) (*Response, error) {
 	u := fmt.Sprintf("teams/%v/memberships/%v", team, user)
 	req, err := s.client.NewRequest("DELETE", u, nil)
@@ -151,7 +151,7 @@ func (s *TeamsService) RemoveTeamMembership(ctx context.Context, team int64, use
 // Warning: The API may change without advance notice during the preview period.
 // Preview features are not supported for production use.
 //
-// GitHub API docs: https://developer.github.com/v3/teams/members/#list-pending-team-invitations
+// GitHub API docs: http://developer.github.com/v3/teams/members/#list-pending-team-invitations
 func (s *TeamsService) ListPendingTeamInvitations(ctx context.Context, team int64, opt *ListOptions) ([]*Invitation, *Response, error) {
 	u := fmt.Sprintf("teams/%v/invitations", team)
 	u, err := addOptions(u, opt)

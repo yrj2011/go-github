@@ -28,21 +28,21 @@ func TestRepositoriesService_GetCommunityHealthMetrics(t *testing.T) {
 						"name": "Contributor Covenant",
 						"key": "contributor_covenant",
 						"url": null,
-						"html_url": "https://github.com/octocat/Hello-World/blob/master/CODE_OF_CONDUCT.md"
+						"html_url": "http://github.com/octocat/Hello-World/blob/master/CODE_OF_CONDUCT.md"
 					},
 					"contributing": {
-						"url": "https://api.github.com/repos/octocat/Hello-World/contents/CONTRIBUTING",
-						"html_url": "https://github.com/octocat/Hello-World/blob/master/CONTRIBUTING"
+						"url": "http://api.github.com/repos/octocat/Hello-World/contents/CONTRIBUTING",
+						"html_url": "http://github.com/octocat/Hello-World/blob/master/CONTRIBUTING"
 					},
 					"license": {
 						"name": "MIT License",
 						"key": "mit",
-						"url": "https://api.github.com/licenses/mit",
-						"html_url": "https://github.com/octocat/Hello-World/blob/master/LICENSE"
+						"url": "http://api.github.com/licenses/mit",
+						"html_url": "http://github.com/octocat/Hello-World/blob/master/LICENSE"
 					},
 					"readme": {
-						"url": "https://api.github.com/repos/octocat/Hello-World/contents/README.md",
-						"html_url": "https://github.com/octocat/Hello-World/blob/master/README.md"
+						"url": "http://api.github.com/repos/octocat/Hello-World/contents/README.md",
+						"html_url": "http://github.com/octocat/Hello-World/blob/master/README.md"
 					}
 				},
 				"updated_at": "2017-02-28T00:00:00Z"
@@ -62,21 +62,21 @@ func TestRepositoriesService_GetCommunityHealthMetrics(t *testing.T) {
 			CodeOfConduct: &Metric{
 				Name:    String("Contributor Covenant"),
 				Key:     String("contributor_covenant"),
-				HTMLURL: String("https://github.com/octocat/Hello-World/blob/master/CODE_OF_CONDUCT.md"),
+				HTMLURL: String("http://github.com/octocat/Hello-World/blob/master/CODE_OF_CONDUCT.md"),
 			},
 			Contributing: &Metric{
-				URL:     String("https://api.github.com/repos/octocat/Hello-World/contents/CONTRIBUTING"),
-				HTMLURL: String("https://github.com/octocat/Hello-World/blob/master/CONTRIBUTING"),
+				URL:     String("http://api.github.com/repos/octocat/Hello-World/contents/CONTRIBUTING"),
+				HTMLURL: String("http://github.com/octocat/Hello-World/blob/master/CONTRIBUTING"),
 			},
 			License: &Metric{
 				Name:    String("MIT License"),
 				Key:     String("mit"),
-				URL:     String("https://api.github.com/licenses/mit"),
-				HTMLURL: String("https://github.com/octocat/Hello-World/blob/master/LICENSE"),
+				URL:     String("http://api.github.com/licenses/mit"),
+				HTMLURL: String("http://github.com/octocat/Hello-World/blob/master/LICENSE"),
 			},
 			Readme: &Metric{
-				URL:     String("https://api.github.com/repos/octocat/Hello-World/contents/README.md"),
-				HTMLURL: String("https://github.com/octocat/Hello-World/blob/master/README.md"),
+				URL:     String("http://api.github.com/repos/octocat/Hello-World/contents/README.md"),
+				HTMLURL: String("http://github.com/octocat/Hello-World/blob/master/README.md"),
 			},
 		},
 	}

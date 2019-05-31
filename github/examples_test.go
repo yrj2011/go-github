@@ -67,7 +67,7 @@ func ExampleRepositoriesService_CreateFile() {
 	// so you will need to modify the example to provide an oauth client to
 	// github.NewClient() instead of nil. See the following documentation for more
 	// information on how to authenticate with the client:
-	// https://godoc.org/github.com/google/go-github/github#hdr-Authentication
+	// http://godoc.org/github.com/google/go-github/github#hdr-Authentication
 	client := github.NewClient(nil)
 
 	ctx := context.Background()
@@ -111,7 +111,7 @@ func ExamplePullRequestsService_Create() {
 	// so you will need to modify the example to provide an oauth client to
 	// github.NewClient() instead of nil. See the following documentation for more
 	// information on how to authenticate with the client:
-	// https://godoc.org/github.com/google/go-github/github#hdr-Authentication
+	// http://godoc.org/github.com/google/go-github/github#hdr-Authentication
 	client := github.NewClient(nil)
 
 	newPR := &github.NewPullRequest{
@@ -139,7 +139,7 @@ func ExampleTeamsService_ListTeams() {
 	// the example to provide an oauth client to github.NewClient() instead of nil.
 	// See the following documentation for more information on how to authenticate
 	// with the client:
-	// https://godoc.org/github.com/google/go-github/github#hdr-Authentication
+	// http://godoc.org/github.com/google/go-github/github#hdr-Authentication
 	client := github.NewClient(nil)
 
 	teamName := "Developers team"

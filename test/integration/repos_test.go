@@ -138,7 +138,7 @@ func TestRepositories_EditBranches(t *testing.T) {
 			RequiredApprovingReviewCount: 0,
 		},
 		EnforceAdmins: &github.AdminEnforcement{
-			URL:     github.String("https://api.github.com/repos/" + *repo.Owner.Login + "/" + *repo.Name + "/branches/master/protection/enforce_admins"),
+			URL:     github.String("http://api.github.com/repos/" + *repo.Owner.Login + "/" + *repo.Name + "/branches/master/protection/enforce_admins"),
 			Enabled: true,
 		},
 		Restrictions: nil,

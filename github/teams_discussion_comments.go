@@ -41,7 +41,7 @@ type DiscussionCommentListOptions struct {
 // ListComments lists all comments on a team discussion.
 // Authenticated user must grant read:discussion scope.
 //
-// GitHub API docs: https://developer.github.com/v3/teams/discussion_comments/#list-comments
+// GitHub API docs: http://developer.github.com/v3/teams/discussion_comments/#list-comments
 func (s *TeamsService) ListComments(ctx context.Context, teamID int64, discussionNumber int, options *DiscussionCommentListOptions) ([]*DiscussionComment, *Response, error) {
 	u := fmt.Sprintf("teams/%v/discussions/%v/comments", teamID, discussionNumber)
 	u, err := addOptions(u, options)
@@ -69,7 +69,7 @@ func (s *TeamsService) ListComments(ctx context.Context, teamID int64, discussio
 // GetComment gets a specific comment on a team discussion.
 // Authenticated user must grant read:discussion scope.
 //
-// GitHub API docs: https://developer.github.com/v3/teams/discussion_comments/#get-a-single-comment
+// GitHub API docs: http://developer.github.com/v3/teams/discussion_comments/#get-a-single-comment
 func (s *TeamsService) GetComment(ctx context.Context, teamID int64, discussionNumber, commentNumber int) (*DiscussionComment, *Response, error) {
 	u := fmt.Sprintf("teams/%v/discussions/%v/comments/%v", teamID, discussionNumber, commentNumber)
 	req, err := s.client.NewRequest("GET", u, nil)
@@ -92,7 +92,7 @@ func (s *TeamsService) GetComment(ctx context.Context, teamID int64, discussionN
 // CreateComment creates a new discussion post on a team discussion.
 // Authenticated user must grant write:discussion scope.
 //
-// GitHub API docs: https://developer.github.com/v3/teams/discussion_comments/#create-a-comment
+// GitHub API docs: http://developer.github.com/v3/teams/discussion_comments/#create-a-comment
 func (s *TeamsService) CreateComment(ctx context.Context, teamID int64, discsusionNumber int, comment DiscussionComment) (*DiscussionComment, *Response, error) {
 	u := fmt.Sprintf("teams/%v/discussions/%v/comments", teamID, discsusionNumber)
 	req, err := s.client.NewRequest("POST", u, comment)
@@ -116,7 +116,7 @@ func (s *TeamsService) CreateComment(ctx context.Context, teamID int64, discsusi
 // Authenticated user must grant write:discussion scope.
 // User is allowed to edit body of a comment only.
 //
-// GitHub API docs: https://developer.github.com/v3/teams/discussion_comments/#edit-a-comment
+// GitHub API docs: http://developer.github.com/v3/teams/discussion_comments/#edit-a-comment
 func (s *TeamsService) EditComment(ctx context.Context, teamID int64, discussionNumber, commentNumber int, comment DiscussionComment) (*DiscussionComment, *Response, error) {
 	u := fmt.Sprintf("teams/%v/discussions/%v/comments/%v", teamID, discussionNumber, commentNumber)
 	req, err := s.client.NewRequest("PATCH", u, comment)
@@ -139,7 +139,7 @@ func (s *TeamsService) EditComment(ctx context.Context, teamID int64, discussion
 // DeleteComment deletes a comment on a team discussion.
 // Authenticated user must grant write:discussion scope.
 //
-// GitHub API docs: https://developer.github.com/v3/teams/discussion_comments/#delete-a-comment
+// GitHub API docs: http://developer.github.com/v3/teams/discussion_comments/#delete-a-comment
 func (s *TeamsService) DeleteComment(ctx context.Context, teamID int64, discussionNumber, commentNumber int) (*Response, error) {
 	u := fmt.Sprintf("teams/%v/discussions/%v/comments/%v", teamID, discussionNumber, commentNumber)
 	req, err := s.client.NewRequest("DELETE", u, nil)

@@ -171,14 +171,14 @@ func TestPullRequestsService_Get_urlFields(t *testing.T) {
 	mux.HandleFunc("/repos/o/r/pulls/1", func(w http.ResponseWriter, r *http.Request) {
 		testMethod(t, r, "GET")
 		fmt.Fprint(w, `{"number":1,
-			"url": "https://api.github.com/repos/octocat/Hello-World/pulls/1347",
-			"html_url": "https://github.com/octocat/Hello-World/pull/1347",
-			"issue_url": "https://api.github.com/repos/octocat/Hello-World/issues/1347",
-			"statuses_url": "https://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e",
-			"diff_url": "https://github.com/octocat/Hello-World/pull/1347.diff",
-			"patch_url": "https://github.com/octocat/Hello-World/pull/1347.patch",
-			"review_comments_url": "https://api.github.com/repos/octocat/Hello-World/pulls/1347/comments",
-			"review_comment_url": "https://api.github.com/repos/octocat/Hello-World/pulls/comments{/number}"}`)
+			"url": "http://api.github.com/repos/octocat/Hello-World/pulls/1347",
+			"html_url": "http://github.com/octocat/Hello-World/pull/1347",
+			"issue_url": "http://api.github.com/repos/octocat/Hello-World/issues/1347",
+			"statuses_url": "http://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e",
+			"diff_url": "http://github.com/octocat/Hello-World/pull/1347.diff",
+			"patch_url": "http://github.com/octocat/Hello-World/pull/1347.patch",
+			"review_comments_url": "http://api.github.com/repos/octocat/Hello-World/pulls/1347/comments",
+			"review_comment_url": "http://api.github.com/repos/octocat/Hello-World/pulls/comments{/number}"}`)
 	})
 
 	pull, _, err := client.PullRequests.Get(context.Background(), "o", "r", 1)
@@ -188,14 +188,14 @@ func TestPullRequestsService_Get_urlFields(t *testing.T) {
 
 	want := &PullRequest{
 		Number:            Int(1),
-		URL:               String("https://api.github.com/repos/octocat/Hello-World/pulls/1347"),
-		HTMLURL:           String("https://github.com/octocat/Hello-World/pull/1347"),
-		IssueURL:          String("https://api.github.com/repos/octocat/Hello-World/issues/1347"),
-		StatusesURL:       String("https://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e"),
-		DiffURL:           String("https://github.com/octocat/Hello-World/pull/1347.diff"),
-		PatchURL:          String("https://github.com/octocat/Hello-World/pull/1347.patch"),
-		ReviewCommentsURL: String("https://api.github.com/repos/octocat/Hello-World/pulls/1347/comments"),
-		ReviewCommentURL:  String("https://api.github.com/repos/octocat/Hello-World/pulls/comments{/number}"),
+		URL:               String("http://api.github.com/repos/octocat/Hello-World/pulls/1347"),
+		HTMLURL:           String("http://github.com/octocat/Hello-World/pull/1347"),
+		IssueURL:          String("http://api.github.com/repos/octocat/Hello-World/issues/1347"),
+		StatusesURL:       String("http://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e"),
+		DiffURL:           String("http://github.com/octocat/Hello-World/pull/1347.diff"),
+		PatchURL:          String("http://github.com/octocat/Hello-World/pull/1347.patch"),
+		ReviewCommentsURL: String("http://api.github.com/repos/octocat/Hello-World/pulls/1347/comments"),
+		ReviewCommentURL:  String("http://api.github.com/repos/octocat/Hello-World/pulls/comments{/number}"),
 	}
 
 	if !reflect.DeepEqual(pull, want) {
@@ -482,7 +482,7 @@ func TestPullRequestsService_Merge(t *testing.T) {
 	}
 }
 
-// Test that different merge options produce expected PUT requests. See issue https://github.com/google/go-github/issues/500.
+// Test that different merge options produce expected PUT requests. See issue http://github.com/google/go-github/issues/500.
 func TestPullRequestsService_Merge_options(t *testing.T) {
 	client, mux, _, teardown := setup()
 	defer teardown()

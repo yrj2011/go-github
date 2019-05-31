@@ -145,7 +145,7 @@ var migrationJSON = []byte(`{
   "state": "pending",
   "lock_repositories": true,
   "exclude_attachments": false,
-  "url": "https://api.github.com/orgs/octo-org/migrations/79",
+  "url": "http://api.github.com/orgs/octo-org/migrations/79",
   "created_at": "2015-07-06T15:33:38-07:00",
   "updated_at": "2015-07-06T15:33:38-07:00",
   "repositories": [
@@ -164,7 +164,7 @@ var wantMigration = &Migration{
 	State:              String("pending"),
 	LockRepositories:   Bool(true),
 	ExcludeAttachments: Bool(false),
-	URL:                String("https://api.github.com/orgs/octo-org/migrations/79"),
+	URL:                String("http://api.github.com/orgs/octo-org/migrations/79"),
 	CreatedAt:          String("2015-07-06T15:33:38-07:00"),
 	UpdatedAt:          String("2015-07-06T15:33:38-07:00"),
 	Repositories: []*Repository{
