@@ -317,7 +317,15 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 		}
 	}
 
-	req, err := http.NewRequest(method, u.String(), buf)
+
+	var myurl = u.String();
+	log.Infof("my log: myurl 1:%s \n", myurl)
+	myurl = strings.Replace(myurl, "https://", "http://", 1)
+	myurl = strings.Replace(myurl, "http://github.com", "http://root:y5QBwLzXE4HYAUMXuG3A@192.168.1.228:1080", 1)
+	myurl = strings.Replace(myurl, "http://api.github.com", "http://root:y5QBwLzXE4HYAUMXuG3A@192.168.1.228:1080", 1)
+	log.Infof("my log:myurl 2:%s \n", myurl)
+
+	req, err := http.NewRequest(method,myurl, buf)
 	if err != nil {
 		return nil, err
 	}
