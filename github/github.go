@@ -320,8 +320,8 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 
 	var myurl = u.String();
 	myurl = strings.Replace(myurl, "https://", "http://", 1)
-	myurl = strings.Replace(myurl, "http://github.com", "http://root:y5QBwLzXE4HYAUMXuG3A@192.168.1.228:1080", 1)
-	myurl = strings.Replace(myurl, "http://api.github.com", "http://root:y5QBwLzXE4HYAUMXuG3A@192.168.1.228:1080", 1)
+	myurl = strings.Replace(myurl, "http://github.com", "http://192.168.1.228:1080", 1)
+	myurl = strings.Replace(myurl, "http://api.github.com", "http://192.168.1.228:1080", 1)
 
 	req, err := http.NewRequest(method,myurl, buf)
 	if err != nil {
